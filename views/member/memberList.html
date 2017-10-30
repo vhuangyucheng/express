@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../../../public/lib/require/require.js" data-main="../../member/js/memberList.js"></script>
+</head>
+<body>
+<table class="am-table am-table-hover am-table-centered am-table-radius classifyTable ">
+    <thead>
+    <tr style="background: #eee;">
+        <td><input hidden type="checkbox" class="selectAll"></td>
+        <td>编号</td>
+        <td>会员名称</td>
+        <td>性别</td>
+        <td>身份证</td>
+        <td>手机号</td>
+        <td>操作</td>
+    </tr>
+    </thead>
+    <tbody class="dataList"></tbody>
+</table>
+</body>
+</html>
+
+<script id="dataList" type="text/html">
+    {{each list as item i}}
+    <tr>
+        <td><input hidden type="checkbox" value="{{ item.memberId }}"></td>
+        <td>{{ item.memberId}}</td>
+        <td>{{ item.memberName}}</td>
+        <td>{{ item.memberSex}}</td>
+        <td>{{ item.idcard}}</td>
+        <td>{{ item.memberMobile}}</td>
+        <td>
+            <a href="/member/memberList/details?memberId={{ item.memberId }}" class="menuDetails">查看</a>&nbsp;&nbsp;
+
+            <a href="/member/memberList/memberOrder?memberId={{ item.memberId }}" class="menuDetails">消费记录</a>
+        </td>
+    </tr>
+    {{/each}}
+</script>
+
